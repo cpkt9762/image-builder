@@ -1,8 +1,12 @@
 name: OpenWrt image builder
 on:
- push:
-    branches:
-    - master
+# push代码时触发workflow
+  push:
+    paths: 
+      - '.github/workflows/docker-image.yml'
+  pull_request:
+    paths: 
+      - '.github/workflows/docker-image.yml' 
 jobs:
   build:
     runs-on: ubuntu-latest
